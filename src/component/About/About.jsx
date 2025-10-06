@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+// import { useLocation } from 'react-router-dom'; // <--- REMOVED this line
 import './About.css'
 import './About.js'
+
 const skillCategories = [
   {
     title: "Frontend",
@@ -32,7 +33,8 @@ const skillCategories = [
       "Role-Based Access",
       "FluentValidation",
       "API Versioning",
-      "CQRS"    ]
+      "CQRS"
+    ]
   },
   {
     title: "Databases & APIs",
@@ -70,70 +72,25 @@ const skillCategories = [
   }
 ];
 
-
-
-
-const CircularProgressBar = ({ progressEndValue }) => {
-    const [progressValue, setProgressValue] = useState(0);
-    const speed = 100;
-
-    useEffect(() => {
-        let progress;
-
-        if (progressValue < progressEndValue) {
-            progress = setTimeout(() => {
-                setProgressValue(progressValue + 1);
-            }, speed);
-        }
-
-        return () => {
-            clearTimeout(progress);
-        };
-    }, [progressValue, progressEndValue]);
-
-    const circularProgressStyle = {
-        background: `conic-gradient(#0d00ff ${progressValue * 3.6}deg, #252525 0deg)`,
-    };
-
-    return (
-        <div className="container">
-            <div className="circular-progress" style={circularProgressStyle}>
-                <span className="progress-value">{`${progressValue}%`}</span>
-            </div>
-
-        </div>
-    );
-};
+// The entire 'CircularProgressBar' component was removed because it was defined but never used.
 
 const About = () => {
-
-
-
-
-
     return (
         <div>
             <div>
                 <div className="a aabout overflow-hidden">
                     <div className="row d-flex ">
-
                         <div className="col-lg-10   aboutme1 ">
                             <div className="row ">
-                            <div className="title-section text-center text-sm-center position-relative">
-    <div className="ABOUTh1 position-relative " style={{ zIndex: 2 }}>
-        <h1>ABOUT <span>ME</span></h1>
-    </div>
-    <span className="title-bg d-none d-lg-block Resume position-absolute" style={{ zIndex: 1 }}>
-        Resume
-    </span>
-</div>
-
-
-
+                                <div className="title-section text-center text-sm-center position-relative">
+                                    <div className="ABOUTh1 position-relative " style={{ zIndex: 2 }}>
+                                        <h1>ABOUT <span>ME</span></h1>
+                                    </div>
+                                    <span className="title-bg d-none d-lg-block Resume position-absolute" style={{ zIndex: 1 }}>
+                                        Resume
+                                    </span>
+                                </div>
                             </div>
-
-
-
                         </div>
                         <div className="row maincon mt-5 pt-5">
                             <div className="col-lg-10 m-auto">
@@ -147,38 +104,30 @@ const About = () => {
                                                 <ul class="about-list list-unstyled ">
                                                     <li><p><span class="title ">First Name: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">AMER</span></p></li>
                                                     <li><p><span class="title">last Name: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">HUSSEIN</span></p></li>
-                                                    {/* <li><p><span class="title">Age: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">23 Years</span></p></li> */}
                                                     <li><p><span class="title">Nationality: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">Palestinian</span></p></li>
                                                     <li><p><span class="title">Freelance: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block green">Available</span></p></li>
-                                                    {/* <li><p><span class="title">Address: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">Palestine</span></p></li> */}
                                                     <li><p><span class="title">phone: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">+970569691385</span></p></li>
                                                     <li>
                                                         <p>
                                                             <span class="title">LinkedIn: </span>
-                                                            <a href="https://www.linkedin.com/in/amer-hatem/" target="_blank" class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block text-decoration-none text-primary fw-semibold text-white">
+                                                            <a href="https://www.linkedin.com/in/amer-hatem/" target="_blank" rel="noopener noreferrer" class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block text-decoration-none text-primary fw-semibold text-white">
                                                                 Amer Hatem
                                                             </a>
                                                         </p>
                                                     </li>
-  <li><p><span class="title ">Email: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">amerhatem01@mail.com</span></p></li>
-
+                                                    <li><p><span class="title ">Email: </span><span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">amerhatem01@mail.com</span></p></li>
                                                     <li><p><span class="title">Langages: </span>
                                                         <span class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block ">Arabic, English</span></p></li>
-                                                  
                                                 </ul>
                                             </div>
                                             <div className="rev2 col-12 mt-1">
-                                                <a className="button mt-5" target='-blank' href="https://drive.google.com/file/d/1zErKNuIwb9rlTmZ-pEvG2HXFTL01OyaF/view?usp=sharing" download >
-                                                    <span className="button-text">Download CV</span><span className="button-icon fa fa-download" /></a>
-
-
+                                                {/* --- FIX: Added rel="noopener noreferrer" --- */}
+                                                <a className="button mt-5" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1zErKNuIwb9rlTmZ-pEvG2HXFTL01OyaF/view?usp=sharing" download >
+                                                    <span className="button-text">Download CV</span><span className="button-icon fa fa-download" />
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
                                     <div className=" col-xl-6 col-lg-7 col-12 mt-5 mt-lg-0">
                                         <div className="row">
                                             <div className="col-6">
@@ -189,20 +138,16 @@ const About = () => {
                                                     </p>
                                                 </div>
                                             </div>
-
                                             <div className="col-6">
                                                 <div className="box-stats ">
                                                     <h3 className="poppins-font position-relative">5</h3>
                                                     <p className="open-sans-font m-0 position-relative text-uppercase">completed <span className="d-block">projects
                                                     </span></p></div></div>
-
                                             <div className="col-6">
                                                 <div className="box-stats ">
                                                     <h3 className="poppins-font position-relative">3</h3>
                                                     <p className="open-sans-font m-0 position-relative text-uppercase">Happy <span className="d-block">customers
                                                     </span></p></div></div>
-
-
                                             <div className="col-6"><div className="box-stats ">
                                                 <h3 className="poppins-font position-relative">2</h3><p className="open-sans-font m-0 position-relative text-uppercase">
                                                     awards <span className="d-block">won</span>
@@ -212,16 +157,10 @@ const About = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
                                 <div className="container my-5 skill-section">
                                     <h2 className="text-center fw-bold text-uppercase mb-5 text-light" style={{ letterSpacing: "2px" }}>
                                         My Skills
                                     </h2>
-
                                     <div className="row gy-4">
                                         {skillCategories.map((category, index) => (
                                             <div key={index} className="col-md-6">
@@ -238,41 +177,25 @@ const About = () => {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         ))}
                                     </div>
                                 </div>
-
-
-
-
-
-
                             </div>
                         </div>
-
-
-
-
                         <div class="rev  col-lg-9 bio my-5 pt-5">
                             <div class="row container">
                                 <div class="d-flex justify-content-center">
                                     <div class="title position-relative">
                                         <h2 class="text-uppercase Experience">
                                             Experience & Education</h2>
-
                                     </div>
-
                                 </div>
-
-
                                 <div class="row mt-5 ">
                                     <div class="col-md-6">
                                         <div class="d-flex haed align-items-center
                             position-relative">
                                             <i class="fas fa-graduation-cap"></i>
                                             <h3 class="ms-3 fs-5 mb-0">Education</h3>
-
                                         </div>
                                         <div class="desc pt-3">
                                             <div class="item carddd position-relative">
@@ -304,9 +227,7 @@ const About = () => {
                             position-relative">
                                             <i class="fas fa-briefcase"></i>
                                             <h3 class="ms-3 fs-5 mb-0">Work Experiences</h3>
-
                                         </div>
-
                                         <div class="desc pt-3">
                                             <div class="item carddd position-relative">
                                                 <h4><span class="fw-light"> Backend Developer Intern</span>, <span class="fw-bold">DEAL Software Design</span></h4>
@@ -316,29 +237,20 @@ const About = () => {
                                                     Involved in debugging, feature development, and integrating backend services in a production-grade system.
                                                 </p>
                                             </div>
-
                                             <div class="item carddd position-relative">
                                                 <h4> <span class="fw-light
                                         ">Bodybuilding coach</span></h4>
-
                                                 <p class="pb-3 m-0">Guiding clients in muscle building, tailored workouts, nutrition plans, form correction, motivation, progress tracking, personalized routines, fitness expertise, goal achievement.</p>
                                             </div>
-                                           
-
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
-
                 </div></div>
         </div>
     )
 }
-
 
 export default About;
